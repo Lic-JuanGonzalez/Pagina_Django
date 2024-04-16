@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portada</title>
+    <link rel="stylesheet" href="{% static "css/estilo2.css" %}">
+</head>
+<body>
+    <h1>Portada de nuestra pagina webs</h1>
+    <h3>Lista de Webs de nuestra base de datos</h3>
+
+    {% if lista_webs %}
+    <table>
+        <thead>
+            <th>Nombre</th>
+            <th>Ruta</th>
+        </thead>
+        {% for web in lista_webs %}
+            <tr>
+                <td>{{ web.nombre }}</td>
+                <td>{{ web.ruta }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No hay webs en la base de datos</p>
+    {% endif %}
+
+    <h3>Lista de temas de nuestra base de datos</h3>
+
+    {% if lista_temas %}
+    <table>
+        <thead>
+            <th>Nombre</th>
+        </thead>
+        {% for temas in lista_temas %}
+            <tr>
+                <td>{{ temas.nombre }}</td>
+            </tr>
+        {% endfor %}
+    
+    {% else %}
+        <p>No hay temas en la base de datos</p>
+    {% endif %}
+    </table>
+
+</body>
+</html>
